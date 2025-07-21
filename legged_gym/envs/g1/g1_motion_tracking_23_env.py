@@ -15,4 +15,6 @@ class G1_23MotionTracking(G1Robot):
     ):
         super().__init__(cfg, sim_params, physics_engine, sim_device, headless)
         self._motion_lib = MotionLibRobot(self.cfg.robot, num_envs=self.num_envs, device=self.device)
-        
+        motion = self._motion_lib.load_motions()
+        # motion_sk = self._motion_lib.load_motion_with_skeleton()
+        print("debug")

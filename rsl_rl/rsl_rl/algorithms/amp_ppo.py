@@ -107,7 +107,8 @@ class AMPPPO(PPO):
             value_batch = self.actor_critic.evaluate(critic_obs_batch, masks=masks_batch, hidden_states=hid_states_batch[1])
             entropy_batch = self.actor_critic.entropy
             sigma_batch = self.actor_critic.action_std
-
+            mu_batch = self.actor_critic.action_mean
+            
             # KL
             if self.desired_kl != None and self.schedule == 'adaptive':
                 with torch.inference_mode():

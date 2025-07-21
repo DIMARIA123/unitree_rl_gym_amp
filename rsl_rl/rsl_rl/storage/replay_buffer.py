@@ -4,6 +4,13 @@ import numpy as np
 
 class ReplayBuffer:
     """Fixed-size buffer to store experience tuples."""
+    
+    class Transition:
+        def __init__(self):
+            self.amp_observations = None
+        
+        def clear(self):
+            self.__init__()
 
     def __init__(self, obs_dim, buffer_size, device):
         """Initialize a ReplayBuffer object.
